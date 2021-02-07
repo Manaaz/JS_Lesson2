@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru" >
+<head>
+    <meta charset="utf-8">
+    <title>Lesson 2.</title>
+</head>
+<body>
+
+    <p>Hi! Lesson 2.</p>     
+    <script>
+    	
+        //Задача 3:      
+    	var a = 5;
+        var b = 4;
+        
+        function resultOfСomparison(){
+            
+            result = "";
+            
+            if (a >= 0 && b >= 0) 
+                result = "a-b, " + a + ">=0 и "+b+">=0: result=" + (a-b);  
+            else if (a < 0 && b < 0) 
+                result = "a*b, " + a + "<0 и "+b+"<0: result=" + (a*b);
+            else 
+                result = "a+b, прочий случай: a="+a+" b="+b+" result=" + (a+b);
+            
+            return result;
+        }
+        
+        //A и B > 0
+        result = resultOfСomparison();
+        alert(result);
+        
+        //A и B < 0
+        a = -6;
+        b = -4;
+        
+        result = resultOfСomparison();
+        alert(result);
+        
+        //A > 0 и B Б 0
+        a = 8;
+        b = -4;
+        
+        result = resultOfСomparison();
+        alert(result);
+        
+        
+        
+        //Задача 4:
+        function randomInteger(min, max) {
+          // случайное число от min до (max+1)
+          var rand = min + Math.random() * (max+1-min);
+          return Math.floor(rand); //округление вниз до ближайшего целого
+        }
+
+        a = randomInteger(0, 15);
+        alert("Задача 4: случайное число от 0 до 15 = "+a);
+        
+        
+        //Задача 5:
+        function result_minus(a,b){
+            return a-b;
+        }
+        function result_plus(a,b){
+            return a+b;
+        }
+        function result_multiplication(a,b){ //лучше бы нагуглить английкое значение
+            return a*b;
+        }
+        function result_division(a,b){
+            return a/b;
+        }
+        
+        alert("Задача 5: " + 
+                "4-2 = "+result_minus(4,2) + "; " +
+                "4+2 = "+result_plus(4,2) + "; " +
+                "4*2 = "+result_multiplication(4,2) + "; " +
+                "4/2 = "+result_division(4,2));
+        
+        //Задача 6:
+        function mathOperation(a, b, operation){
+            switch (operation){
+                case 'plus':
+                    return result_plus(a,b);
+                case 'minus':
+                    return result_minus(a,b);
+                case 'multiplication':
+                    return result_multiplication(a,b);
+                case 'division':
+                    return result_division(a,b);        
+            }
+        }
+        
+        a = 3;
+        b = 7;
+        alert("Задача 6: a=3, b=7: "+
+                "+: "+mathOperation(a, b, "plus") + "; "+
+                "-: "+mathOperation(a, b, "minus") + "; "+
+                "*: "+mathOperation(a, b, "multiplication") + "; "+
+                "/: "+mathOperation(a, b, "division") + ";"
+             );
+        
+        //Задача 7:
+        var c = null;
+        if (c >= 0)
+            alert("Задача 7, сравнение null == 0 - вернёт false, null < 0 = false, null >= 0 - вернёт true. При нестрогом сравнении, null = undefined, в других случаях null приравнен к 0");
+        
+        //Задача 8:
+        var val = 3;
+        var pol = 5;
+        var result = val;
+        
+        //рекурсивная функция
+        function power(val, pow){
+            
+            if (pow <= 1){
+                return result;
+            }
+                        
+            result = result * val;
+            pow = pow-1;
+            
+            return power(val, pow);
+            
+        }
+        result = power(val, pol);
+        
+        //2*2=4, 4*4=16, 16*16=256
+        alert("Задача 8: значение "+val+" в степени "+pol+": "+result+
+             "; альтернатива через math: "+Math.pow(val,pol)
+             );
+        
+    </script>
+        
+</body>
+</html>
